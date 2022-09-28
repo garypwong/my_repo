@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "07807b22-1a35-444c-9b1d-0fef07263513",
+		"name": "lenderx",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23527458"
+	},
+	"item": [
+		{
+			"name": "/me (check access token)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{ACCESS_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "https://api.sandbox1.lenderx-labs.com/appraisal/me",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox1",
+						"lenderx-labs",
+						"com"
+					],
+					"path": [
+						"appraisal",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list subscriptions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{ACCESS_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.sandbox1.lenderx-labs.com/appraisal/event/subscription",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox1",
+						"lenderx-labs",
+						"com"
+					],
+					"path": [
+						"appraisal",
+						"event",
+						"subscription"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "subscribe to Order Assignment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{ACCESS_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"events\": [\n        \"Event.Appraisal.Order.Assigned\"\n    ],\n    \"url\": \"{{NGROK_BASE_URL}}/acknowledgement/event\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.sandbox1.lenderx-labs.com/appraisal/event/subscription",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox1",
+						"lenderx-labs",
+						"com"
+					],
+					"path": [
+						"appraisal",
+						"event",
+						"subscription"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete subscription by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{ACCESS_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.sandbox1.lenderx-labs.com/appraisal/event/subscription/488",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox1",
+						"lenderx-labs",
+						"com"
+					],
+					"path": [
+						"appraisal",
+						"event",
+						"subscription",
+						"488"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{ACCESS_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.sandbox1.lenderx-labs.com/appraisal/test/order",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox1",
+						"lenderx-labs",
+						"com"
+					],
+					"path": [
+						"appraisal",
+						"test",
+						"order"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "5f9f4b41-b4b5-4ce0-8086-31757884e2db",
+		"name": "mojo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23527458"
+	},
+	"item": [
+		{
+			"name": "list subscriptions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{ACCESS_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{NGROK_BASE_URL}}/event/subscription",
+					"host": [
+						"{{NGROK_BASE_URL}}"
+					],
+					"path": [
+						"event",
+						"subscription"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "subscribe to Order Assignment (append)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{ACCESS_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"events\": [\n        \"Event.Appraisal.Order.Assigned\"\n    ],\n    \"url\": \"{{NGROK_BASE_URL}}/acknowledgement/event\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{NGROK_BASE_URL}}/event/subscription",
+					"host": [
+						"{{NGROK_BASE_URL}}"
+					],
+					"path": [
+						"event",
+						"subscription"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete subscription by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{ACCESS_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{NGROK_BASE_URL}}/event/subscription/490",
+					"host": [
+						"{{NGROK_BASE_URL}}"
+					],
+					"path": [
+						"event",
+						"subscription",
+						"490"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete ALL subscriptions",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{ACCESS_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{NGROK_BASE_URL}}/event/subscription_all",
+					"host": [
+						"{{NGROK_BASE_URL}}"
+					],
+					"path": [
+						"event",
+						"subscription_all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{ACCESS_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{NGROK_BASE_URL}}/test/order",
+					"host": [
+						"{{NGROK_BASE_URL}}"
+					],
+					"path": [
+						"test",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "subscribe to Events (replace)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{ACCESS_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"events\": [\n        \"Event.Appraisal.Order.Accepted\",\n        \"Event.Appraisal.Order.Rushed\"\n    ],\n    \"url\": \"{{NGROK_BASE_URL}}/acknowledge/event\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{NGROK_BASE_URL}}/event/subscription",
+					"host": [
+						"{{NGROK_BASE_URL}}"
+					],
+					"path": [
+						"event",
+						"subscription"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
